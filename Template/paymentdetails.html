@@ -1,0 +1,26 @@
+{% extends 'payment.html' %}
+{% load static %}
+
+{% block child %}
+<br><br>
+<p>welcome to paymentdetailspage</p>
+<form action="paymentpage/">
+    {% csrf_token %}
+    <div class="container" >
+        <h3>Student Payment Details</h3>
+
+        <div class="form-group">
+            <ul style="list-style-type:none;  border: 1px solid #000;">
+                <li>studentID: {{fe.studentss.id}}</li>
+                <li>Name: {{fe.studentss.FirstName}} {{fe.studentss.LastName}}</li>
+                <li>regNo: {{fe.studentss.regNo}}</li>
+                <li>paiduptoMonth: {{fe.lastpaidmonth}}</li>
+                <li>dueRemain: {{fe.duetobepaid}}</li>
+            </ul>
+        </div>
+        <a href="paymentpage.html">Make Payment</a>
+    </div> <!-- ./container -->
+
+</form>
+
+{% endblock %}

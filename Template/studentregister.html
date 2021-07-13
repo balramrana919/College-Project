@@ -1,0 +1,106 @@
+{% extends 'studentdash.html' %}
+{% load static %}
+
+{% block content %}
+
+ <form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <div class="container">
+        {% if messages %}
+        {% for result in messages %}
+        <b style="color: green;">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Student ID</label>
+            <div class="col-sm-9">
+               <input type="text" name="studentID" placeholder="Student ID" required/>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="col-sm-3 control-label">First Name</label>
+                <input type="text" name="FirstName" placeholder="First Name" required/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-3 control-label">Last Name</label>
+                <input type="text" name="LastName" placeholder="Last Name" required/>
+            </div>
+        </div>
+         <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="col-sm-3 control-label">Date of Admission</label>
+                <input type="text"  placeholder="yyyy-mm-dd" name="DateOfAdmission" required />
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-3 control-label">Registration Number</label>
+                <input type="text" name="regNo" placeholder="Registration Number" required/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Permanent Address</label>
+            <input type="text" name="perAddress" placeholder="Permanent Address" required/>
+            </div>
+            <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Temporary Address</label>
+            <input type="text" name="tempAddress" placeholder="Temporary Address" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Gender</label>
+            <div class="col-sm-9">
+                <input type="radio" id="male" name="gender" value="male" >
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Contact</label>
+            <input type="number" name="contact" placeholder="Contact" required/>
+            </div>
+            <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Parent Contact</label>
+            <input type="number" name="ParentCont" placeholder="Parent Contact" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" name="email" placeholder="Email" required value="nomail@gmail.com"/>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Father Name </label>
+            <input type="text" name="FatherName" placeholder="Father Name" required/>
+            </div>
+
+        <div class="form-group col-md-6">
+            <label class="col-sm-3 control-label">Grand Father Name </label>
+                <input type="text" name="GrandFatherName" placeholder="Grand Father Name" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Upload Profile Image</label>
+            <div class="col-sm-9">
+                <input type="file" name="profileImg" placeholder="Profile Image" accept="image/*" required/>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary ">Register</button>
+
+
+    </div>
+<!--     &lt;!&ndash; ./container &ndash;&gt;-->
+
+</form>
+
+{% endblock %}

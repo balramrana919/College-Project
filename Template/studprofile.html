@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>ABC School</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'student/assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'student/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'student/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'student/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'student/assets/css/style.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body style="background-color: #27A9BB;">
+<!-- Registration form -->
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container">
+        <h2>Student Profile</h2><br>
+        <hr/>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Profile Pic:</b></label>
+           <img src={{studs.profileImg.url}} height="200px" width="150px"/>
+        </div>
+
+
+        <table border="2px">
+            <tr>
+                <th>Student ID: </th>
+                <td>{{studs.studentID}}</td>
+            </tr>
+             <tr>
+                <th>First Name: </th>
+                <td>{{studs.FirstName}}</td>
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td>{{studs.LastName}}</td>
+            </tr>
+            <tr>
+                <th>Date Of Admission: </th>
+                <td>{{studs.DateOfAdmission}}</td>
+            </tr>
+            <tr>
+                <th>Registration Number: </th>
+                <td>{{studs.regNo}}</td>
+            </tr>
+            <tr>
+                <th>Permanent Address: </th>
+                <td>{{studs.perAddress}}</td>
+            </tr>
+            <tr>
+                <th>Temporary Address: </th>
+                <td>{{studs.tempAddress}}</td>
+            </tr>
+            <tr>
+                <th>Gender: </th>
+                <td>{{studs.gender}}</td>
+            </tr>
+            <tr>
+                <th>Student Contact: </th>
+                <td>{{studs.contact}}</td>
+            </tr>
+            <tr>
+                <th>Parent Contact: </th>
+                <td>{{studs.ParentCont}}</td>
+            </tr>
+             <tr>
+                <th>Email: </th>
+                <td>{{studs.email}}</td>
+            </tr>
+            <tr>
+                <th>Father Name: </th>
+                <td>{{studs.FatherName}}</td>
+            </tr>
+            <tr>
+                <th>Grand Father Name: </th>
+                <td>{{studs.GrandFatherName}}</td>
+            </tr>
+        </table>
+        <hr/>
+    </div> <!-- ./container -->
+</form>
+
+</body>
+
+</html>

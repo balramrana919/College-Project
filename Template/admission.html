@@ -1,0 +1,52 @@
+{% extends 'studentdash.html' %}
+{% load static %}
+
+{% block content %}
+<p>welcome to admission page......</p>
+<form method="POST" action="{% url 'admission' %}">
+
+    {% csrf_token %}
+    <form class="form-group">
+        <div class="container" style="padding-top:50px;">
+            <div class="form-group">
+                <div class="col-sm-3 control-label">
+                    <label><b>Student ID: </b></label>
+                    <select name="studentss">
+                        {% for studs in studentsss%}
+                        <option>{{studs.id}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><b>Pay Of:</b></label>
+                <div class="col-sm-3 control-label">
+                    <input type="text" name="lastpaidmonth" placeholder="Admission" value="Admission" required/>
+                </div>
+            </div>
+<!--            <div class="form-group">-->
+<!--                <label class="col-sm-3 control-label"><b>Amount Paid</b></label>-->
+<!--                <div class="col-sm-3 control-label">-->
+<!--                    <input type="number" name="duetobepaid" placeholder="Amount Paid" required/>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><b>Remaining Dues:</b></label>
+                <div class="col-sm-3 control-label">
+                    <input type="number" name="duetobepaid" required/>
+                </div>
+            </div>
+
+            <input type="submit" value="Save">
+            {% if msg %}
+            <b style="color: green;">{{msg}}</b>
+            {% endif %}
+        </div>
+    </form>
+
+    <!--     &lt;!&ndash; ./container &ndash;&gt;-->
+
+</form>
+{% endblock %}
+

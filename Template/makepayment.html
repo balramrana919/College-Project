@@ -1,0 +1,70 @@
+{% extends 'studentdash.html' %}
+
+{% block content %}
+
+<form method="POST" action="/updatepayment/">
+    {% csrf_token %}
+    <div class="container" >
+        <h2>Make Payment</h2>
+        <label class="col-sm-3 control-label"><b>Student ID:</b> {{fes.id}}</label>
+        <label class="col-sm-3 control-label"><b>Last Paid Month:</b> {{fes.lastpaidmonth}}</label>
+        <label class="col-sm-3 control-label"><b>Due to be Paid:</b> {{fes.duetobepaid}}</label>
+        <label class="col-sm-3 control-label"><b>Student id:</b> {{fes.studentss_id}}</label>
+        <label class="col-sm-3 control-label"><b>Advance:</b> {{fes.advance}}</label>
+        <label class="col-sm-3 control-label"><b>Amount paid:</b> {{fes.amountpaid}}</label>
+        <hr>
+        <br>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Student id</label>
+            <div class="col-sm-9">
+                <input type="number" name="studentss" value="{{fes.studentss_id}}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">ID</label>
+            <div class="col-sm-9">
+               <input type="text" name="id" value="{{fes.id}}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Last Paid Month</label>
+            <div class="col-sm-9">
+                <input type="text" name="lastpaidmonth" value="{{fes.lastpaidmonth}}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Due to be Paid</label>
+            <div class="col-sm-9">
+                <input type="number" id="duetobepaid" value="{{fes.duetobepaid }}" onkeyup="sum()"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">advance</label>
+            <div class="col-sm-9">
+                <input type="number"  id="advance" value="{{fes.advance}}" onkeyup="sum()"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">amountpaid </label>
+            <div class="col-sm-9">
+                <input type="number" id="amountpaid" name="amountpaid" value="" onkeyup="sum()"/>
+            </div>
+        </div>
+
+
+        <div style="padding-top:10px">
+            Due Left:
+            <input type="number" name="duetobepaid" id="txtResult1" placeholder="0"/>
+        </div>
+        <div style="padding-top:10px">
+            Advance Left:
+            <input type="number" name="advance" id="txtResult2" placeholder="0" />
+        </div>
+
+        <button type="submit" class="btn btn-primary ">Update Payment</button>
+    </div> <!-- ./container -->
+</form>
+
+
+{% endblock %}
+

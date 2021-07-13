@@ -1,0 +1,74 @@
+{% extends 'studentdash.html' %}
+{% load static %}
+
+{% block content %}
+<p>welcome to payment page......</p>
+<form method="POST" action="{% url 'paymentpage' %}">
+
+    {% csrf_token %}
+    <div class="container" style="padding-top:50px;">
+         {% if msg %}
+        <b style="color: green;">{{msg}}</b>
+        {% endif %}
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Student ID</b></label>
+            <select name="studentss">
+                {% for studs in studentsss%}
+                <option value="{{studs.id}}">{{studs.id}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Pay Of Month:</b></label>
+            <div class="col-sm-9">
+                <select name="lastpaidmonth">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+<!--                <input type="text" name="lastpaidmonth" placeholder="month" required/>-->
+            </div>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label class="col-sm-3 control-label"><b>Amount Paid: </b></label>-->
+<!--            <div class="col-sm-9">-->
+<!--                <input type="number" name="duetobepaid" placeholder="Amount" required/>-->
+<!--            </div>-->
+
+<!--        </div>-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Remaining Dues:</b></label>
+            <div class="col-sm-9">
+                <input type="number" name="duetobepaid"  required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Advance:</b></label>
+            <div class="col-sm-9">
+                <input type="number" name="advance"  required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><b>Amount Paid:</b></label>
+            <div class="col-sm-9">
+                <input type="number" name="amountpaid"  required/>
+            </div>
+        </div>
+        <input type="submit" value="Make Payment">
+
+    </div>
+<!--     &lt;!&ndash; ./container &ndash;&gt;-->
+
+</form>
+{% endblock %}
+

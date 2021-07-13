@@ -1,0 +1,21 @@
+{% extends 'studentdash.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+<h3>Payment Details</h3>
+    <form method="POST" action="{% url 'paymentdetails' %}">
+         {% csrf_token %}
+        <input type="text" name="studentss_id" placeholder="Student ID">
+        <button type="submit">Get Data</button>
+        <a href="paymentpage.html">Make Payment</a>
+         {% if messages %}
+    {% for result in messages %}
+    <b style="color: red;">{{result}}</b>
+    {% endfor %}
+    {% endif %}
+    </form>
+ {% block child %}
+    {% endblock %}
+</main>
+{% endblock %}
