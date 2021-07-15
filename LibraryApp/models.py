@@ -15,3 +15,16 @@ class libraryuserModel(models.Model):
 
     class Meta:
         db_table = 'libraryuser_db'
+
+class BookDetailModel(models.Model):
+    book_id = models.IntegerField(max_length=10)
+    bookName = models.CharField(max_length=20)
+    bookAuthor = models.CharField(max_length=20)
+    bookPublication = models.CharField(max_length=50)
+    bookPublishDate = models.DateField()
+    bookGenre = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'bookdetail_db'
+
+

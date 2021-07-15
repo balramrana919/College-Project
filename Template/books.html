@@ -1,0 +1,27 @@
+{% extends 'librarybase.html' %}
+
+{% block content %}
+<br>
+<br><br><br><br>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Publication</th>
+        <th>PublishDate</th>
+        <th>Genre</th>
+    </tr>
+    <tr>
+{% for book in books %}
+    <td>{{book.book_id}}</td>
+    <td>{{book.bookName}}</td>
+    <td>{{book.bookAuthor}}</td>
+    <td>{{book.bookPublication}}</td>
+    <td>{{book.bookPublishDate}}</td>
+    <td>{{book.bookGenre}}</td>
+{% endfor%}
+</tr>
+</table>
+{% endblock %}
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.cache import cache_control
-from LibraryApp.models import libraryuserModel
+from LibraryApp.models import BookDetailModel, libraryuserModel
 from django.contrib import messages, auth
 
 
@@ -24,4 +24,9 @@ def librarylogin(request):
 def librarylogout(request):
     auth.logout(request)
     return redirect('/libraryapp/librarylogin.html')
+
+
+def Books(request):
+    books = BookDetailModel.objects.all()
+    return render(request, 'books.html',{'books':books})
 
